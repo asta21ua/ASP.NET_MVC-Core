@@ -17,6 +17,10 @@ namespace PartyInvitatyion_WebApp.Controllers
             return View("MyView");
             
         }
+        public ViewResult RsvpFrom()
+        {
+            return View();
 
+        }
     }
 }
