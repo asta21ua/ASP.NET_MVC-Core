@@ -15,12 +15,18 @@ namespace PartyInvitatyion_WebApp.Controllers
             int hour = DateTime.Now.Hour;
             ViewBag.Greeting = hour < 12 ? "Good morning" : "Good afternoon";
             return View("MyView");
-            
+
         }
+        [HttpGet]
         public ViewResult RsvpFrom()
         {
             return View();
+        }
 
+        [HttpPost]
+        public ViewResult RsvpForm(GuestResponse guestResponse)
+        {
+            return View();
         }
     }
 }
