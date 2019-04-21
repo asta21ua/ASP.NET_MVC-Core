@@ -28,5 +28,12 @@ namespace PartyInvitatyion_WebApp.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public ViewResult RsvpFrom(GuestResponse guestResponse)
+        {
+            Repository.AddResponse(guestResponse);
+            return View("Thanks", guestResponse);
+        }
     }
 }

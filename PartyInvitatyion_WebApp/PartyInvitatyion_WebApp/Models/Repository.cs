@@ -15,7 +15,7 @@ namespace PartyInvitatyion_WebApp.Models
         }
         public static void AddResponse(GuestResponse response)
         {
-            response.Add(response);
+            responses.Add(response);
         }
     }
 
