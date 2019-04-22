@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using PartyInvitatyion_WebApp.Models;
 
+
 namespace PartyInvitatyion_WebApp.Controllers
 {
     public class HomeController : Controller
@@ -35,5 +36,10 @@ namespace PartyInvitatyion_WebApp.Controllers
             Repository.AddResponse(guestResponse);
             return View("Thanks", guestResponse);
         }
+        public ViewResult ListResponses()
+        {
+            return View(Repository.Responses.Where(r => r.WillAttend == true));
+        }
     }
+
 }
