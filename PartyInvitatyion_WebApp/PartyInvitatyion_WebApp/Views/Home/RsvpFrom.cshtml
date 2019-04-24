@@ -11,6 +11,8 @@
 </head>
 <body>
     <form asp-action="RsvpForm" method="post">
+        
+        <div asp-action="RsvpForm" method="post"> </div>
         <p>
             <label asp-for="Name">Your name: </label>
             <input asp-for="Name" />
@@ -26,6 +28,7 @@
         </p>
         <p>
             <label>Will you attend?</label>
+            
             <select asp-for="WillAttend">
                 <option value="">Choose an option </option>
                 <option value="true">Yes, I'll be there </option>
