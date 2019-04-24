@@ -1,12 +1,14 @@
 ﻿@model PartyInvitatyion_WebApp.Models.GuestResponse
-@{Layout = null;}
+@{
+    Layout = null;
+}
 <!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Thanks</title>
 </head>
-<body> 
+<body>
     <p>
         <h1>Thank you,@Model.Name!</h1>
         @if (Model.WillAttend == true)
@@ -18,6 +20,9 @@
             @:Sorry to hear that you can't make it, but thanks for letting us know.
         }
     </p>
-    <p>Click <a asp-action="ListResponses">here</a> </p>
+    <p>
+        Click <a asp-action="ListResponses">here</a>
+        to see who is coming
+    </p>
 </body>
 </html>
