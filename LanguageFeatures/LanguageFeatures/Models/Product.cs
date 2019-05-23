@@ -24,7 +24,7 @@ namespace LanguageFeatures.Models
                 Price = 48.23M
             };
 
-            return new Product[] (kayak, lifejacket, null);
+            return new Product[] { kayak, lifejacket, null };
         }
 
     }
