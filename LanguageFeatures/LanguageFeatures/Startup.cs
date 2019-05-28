@@ -13,14 +13,29 @@ namespace LanguageFeatures
     public class Startup
     {
         public void ConfigureServices(IServiceCollection services)
-           
+
         {
             services.AddMvc();
         }
-
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+
+            //app.Run(async (context) =>
+            //{
+            //    await context.Response.WriteAsync("Hello World!");
+            //});
             app.UseMvcWithDefaultRoute();
+            //    / 116 Rus 130Eng
+
+            //public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+            //{
+            //    app.UseMvcWithDefaultRoute();
+            //}
         }
     }
+
 }

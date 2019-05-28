@@ -11,7 +11,7 @@ namespace LanguageFeatures.Models
         public string Category { get; set; } = "Watersports";
         public decimal? Price { get; set; }
         public Product Related { get; set; }
-        public bool InStock { get; set; }
+        public bool InStock { get; } = true;
 
         public static Product[] GetProducts()
         {
