@@ -11,7 +11,19 @@ namespace LanguageFeatures.Controllers
     {
         public ViewResult Index()
         {
-            return View(new string[] { "C", "Language", "Feachers" });
+            List<string> results = new List<string>();
+
+            foreach (Product p in Product.GetProducts())
+            {
+                string name = p?.Name ?? "<No Name>";
+                decimal? price = p?.Price ?? 0;
+                string relatedName = p ? .Related?.Name?? "<None>";
+                results.Add(string.Format("Name: {0}, Price: {1}, Related: {2}", name, price, relatedName));
+
+            }
+            return View(results);
+            
+            //return View(new string[] { "C", "Language", "Feachers" });
             //string[] names = new string[3];
             //names[0] = "Bob";
             //names[0] = "Joe";

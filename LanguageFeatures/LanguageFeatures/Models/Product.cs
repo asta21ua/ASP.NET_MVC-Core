@@ -8,10 +8,10 @@ namespace LanguageFeatures.Models
     public class Product
     {
         public string Name { get; set; }
-       // public string Category { get; set; } = "Watersports";
+        // public string Category { get; set; } = "Watersports";
         public decimal? Price { get; set; }
-        //public Product Related { get; set; }
-       // public bool InStock { get; } = true;
+        public Product Related { get; set; }
+        // public bool InStock { get; } = true;
 
         public static Product[] GetProducts()
         {
@@ -27,7 +27,8 @@ namespace LanguageFeatures.Models
                 Name = "LifeJecket",
                 Price = 48.23M
             };
-            //kayak.Related = lifejacket;
+
+            kayak.Related = lifejacket;
             return new Product[] { kayak, lifejacket, null };
         }
 
