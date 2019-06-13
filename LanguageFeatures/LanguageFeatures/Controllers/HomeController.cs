@@ -11,24 +11,23 @@ namespace LanguageFeatures.Controllers
     {
         public ViewResult Index()
         {
-            List<string> results = new List<string>();
+            //List<string> results = new List<string>();
 
-            foreach (Product p in Product.GetProducts())
-            {
-                string name = p?.Name ?? "<No Name>";
-                decimal? price = p?.Price ?? 0;
-                string relatedName = p ? .Related?.Name?? "<None>";
-                results.Add(string.Format("Name: {0}, Price: {1}, Related: {2}", name, price, relatedName));
+            //foreach (Product p in Product.GetProducts())
+            //{
+            //    string name = p?.Name ?? "<No Name>";
+            //    decimal? price = p?.Price ?? 0;
+            //    string relatedName = p ? .Related?.Name?? "<None>";
+            //    results.Add($"Name: {name}, Price: {price}, Related: {relatedName}"); // String Interpolation
 
-            }
-            return View(results);
-            
+            //}
+            //return View(results);
+
             //return View(new string[] { "C", "Language", "Feachers" });
-            //string[] names = new string[3];
-            //names[0] = "Bob";
-            //names[0] = "Joe";
-            //names[0] = "Alice";
-            //return View("Index", names); 
+            {
+                return View("Index", new string[] { "Bob", "Alice", "Tom" }); // collection initializer
+            }
+            
 
             //ShoppingCart cart = new ShoppingCart { Products = Product.GetProducts() };
             //Product[] productArray = { new Product { Name = "Kayak", Price = 27M},
