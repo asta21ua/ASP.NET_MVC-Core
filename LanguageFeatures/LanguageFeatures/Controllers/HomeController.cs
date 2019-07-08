@@ -24,10 +24,63 @@ namespace LanguageFeatures.Controllers
             //return View(results);
 
             //return View(new string[] { "C", "Language", "Feachers" });
-            {
-                return View("Index", new string[] { "Bob", "Alice", "Tom" }); // collection initializer
+            //{
+            //    return View("Index", new string[] { "Bob", "Alice", "Tom" }); // Collection Initializer
+
+
+
+            //Dictionary<string, Product> products = new Dictionary<string, Product> // Index Initializer
+            //{{"Kayak", new Product {Name= "Kayak", Price = 275M} },
+            //    {"Lifejacet", new Product { Name = "Lifejacet", Price = 48.9M} }
+
+            //};
+
+            //return View("Index", products.Keys);
+
+            //or we can use Index Initializer in other way
+
+            //Dictionary<string, Product> products = new Dictionary<string, Product>
+            //{
+            //    ["Kayak"] = new Product { Name = "Kayak", Price = 275M },
+            //    ["Lifejacket"] = new Product { Name = "Lifejakcet", Price = 48.7M }
+
+            //};
+
+            //return View("Index", products.Keys);
+
+
+            //object[] data = new object[] { 275M, 29.3M, "apple", "orange", 100, 10 }; //Pattern Matching
+            //decimal total = 0;
+            //for (int i= 0; i< data.Length; i++)
+            //{
+            //    if (data[i] is decimal d)
+            //    {
+            //        total += d;
+            //    }
+
+            //}
+
+            //return View("Index", new string[] { $"Total: {total :C2}" });
+
+
+            // Pattern matching in Switch Statments
+
+            object[] data = new object[] { 275M, 29.5M, "apple", "orange", 100, 10 };
+            decimal total = 0;
+            for (int i = 0; i < data.Length; i++)
+            { switch (data[i])
+
+                { case decimal decimalValue:
+                        total += decimalValue;
+                        break;
+                    case int intValue when intValue > 50:
+                        total += intValue;
+                        break;
+                }
+
             }
-            
+            return View("Index", new string[] {$"Total: {total :C2}" });
+
 
             //ShoppingCart cart = new ShoppingCart { Products = Product.GetProducts() };
             //Product[] productArray = { new Product { Name = "Kayak", Price = 27M},
