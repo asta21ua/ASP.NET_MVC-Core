@@ -65,39 +65,50 @@ namespace LanguageFeatures.Controllers
 
             // Pattern matching in Switch Statments
 
-            object[] data = new object[] { 275M, 29.5M, "apple", "orange", 100, 10 };
-            decimal total = 0;
-            for (int i = 0; i < data.Length; i++)
-            { switch (data[i])
+            //object[] data = new object[] { 275M, 29.5M, "apple", "orange", 100, 10 };
+            //decimal total = 0;
+            //for (int i = 0; i < data.Length; i++)
+            //{
+            //    switch (data[i])
 
-                { case decimal decimalValue:
-                        total += decimalValue;
-                        break;
-                    case int intValue when intValue > 50:
-                        total += intValue;
-                        break;
-                }
+            //    {
+            //        case decimal decimalValue:
+            //            total += decimalValue;
+            //            break;
+            //        case int intValue when intValue > 50:
+            //            total += intValue;
+            //            break;
+            //    }
 
-            }
-            return View("Index", new string[] {$"Total: {total :C2}" });
+            //}
+            //return View("Index", new string[] { $"Total: {total:C2}" });
 
 
-            //ShoppingCart cart = new ShoppingCart { Products = Product.GetProducts() };
-            //Product[] productArray = { new Product { Name = "Kayak", Price = 27M},
-            //     new Product { Name = "Lifejacket", Price = 48.95M},
-            //     new Product { Name = "Soccer ball", Price = 19.50M},
-            //     new Product { Name = "Corner flag", Price = 34.95M}
-            //};
+            //Extention Methods
+
+            ShoppingCart cart = new ShoppingCart { Products = Product.GetProducts() };
+
+            Product[] productArray = { new Product { Name = "Kayak", Price = 275M}, // adding Extantion Methods into Interface 
+                 new Product { Name = "Lifejacket", Price = 48.95M},
+                 new Product { Name = "Soccer ball", Price = 19.50M}, // creating Filtring Extantion Methods 
+                 new Product { Name = "Corner flag", Price = 34.95M}
+            };
             //decimal cartTotal = cart.TotalPrices();
             //decimal arrayTotal = productArray.TotalPrices();
 
+            //return View("Index", new string[] {$"Cart Total: {cartTotal:C2}", $"Array Total: {arrayTotal:C2}" });
+
+            //decimal arrayTotal = productArray.TotalPrices();
+
             //decimal arrayTotal = productArray.FilterByPrice(20).TotalPrices();
-            //decimal priceFilterTotal = productArray.FilterByPrice(20).TotalPrices();
-            //decimal nameFilterTotal = productArray.FilterByName('S').TotalPrices();
 
-            //return View ("Index", new string [] { $"Cart Total: { cartTotal:C2}", $"Array Total: {arrayTotal:C2}"});
+            decimal arrayTotal = productArray.FilterByPrice(20).TotalPrices(); // creating Filtring Extantion Methods 
 
-            //return View("Index", new string[] { $"Array Total : {arrayTotal:C2}" });
+            return View("Index", new string[] { $"Array Total : {arrayTotal:C2}" }); // creating Filtring Extantion Methods//decimal nameFilterTotal = productArray.FilterByName('S').TotalPrices();
+
+            //return View("Index", new string[] { $"Cart Total: { cartTotal:C2}", $"Array Total: {arrayTotal:C2}" }); 
+
+           
 
             //return View("Index", new string[]
             //    {$"Price Total : {priceFilterTotal:C2}",
