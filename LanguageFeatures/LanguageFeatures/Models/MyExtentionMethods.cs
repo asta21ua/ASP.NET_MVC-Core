@@ -17,33 +17,50 @@ namespace LanguageFeatures.Models
             return total;
         }
 
-        public static IEnumerable<Product> FilterByPrice(this IEnumerable<Product> productEnum, decimal minimumPrice) //Creating Filtring Extantion Methods
-        {
-            foreach (Product prod in productEnum)
-            {
-                if ((prod?.Price ?? 0) >= minimumPrice)
-                {
-                    yield return prod;
-                }
-            }
-        }
-        
+        //public static IEnumerable<Product> FilterByPrice(this IEnumerable<Product> productEnum, decimal minimumPrice) //Creating Filtring Extantion Methods
+        //{
+        //    foreach (Product prod in productEnum)
+        //    {
+        //        if ((prod?.Price ?? 0) >= minimumPrice)
+        //        {
+        //            yield return prod;
+        //        }
+        //    }
+        //}
+
         //Lambda Expressions
 
-        public static IEnumerable<Product> FilterByName(this IEnumerable<Product> productEnum, char firstLetter)
+        //public static IEnumerable<Product> FilterByName(this IEnumerable<Product> productEnum, char firstLetter)
 
+        //{
+        //    foreach (Product prod in productEnum)
+        //    {
+        //        if (prod?.Name?[0] == firstLetter)
+        //        {
+        //            yield return prod;
+        //        }
+        //    }
+        //}
+
+
+        //Defining Functions
+        public static IEnumerable<Product> Filter(this IEnumerable<Product> productenum, Func<Product, bool> selector)
         {
-            foreach (Product prod in productEnum)
+            foreach (Product prod in productenum)
             {
-                if (prod?.Name?[0] == firstLetter)
+                if (selector(prod))
                 {
                     yield return prod;
+
                 }
             }
         }
-
     }
 
+
+
 }
+
+
 
 
