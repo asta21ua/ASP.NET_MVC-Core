@@ -8,12 +8,9 @@ using LanguageFeatures.Models;
 namespace LanguageFeatures.Controllers
 {
     public class HomeController : Controller
-        // Defining Exprretions
-
-
+    // Defining Exprretions
 
     {
-
         bool FilterByPrice(Product p)
         {
             return (p?.Price ?? 0) >= 20;
@@ -95,14 +92,14 @@ namespace LanguageFeatures.Controllers
 
             //Extention Methods
 
-            ShoppingCart cart = new ShoppingCart { Products = Product.GetProducts() };
+            //ShoppingCart cart = new ShoppingCart { Products = Product.GetProducts() };
 
-            Product[] productArray = { new Product { Name = "Kayak", Price = 275M}, // adding Extantion Methods into Interface 
+            //Product[] productArray = { new Product { Name = "Kayak", Price = 275M}, // adding Extantion Methods into Interface 
 
-                 new Product { Name = "Lifejacket", Price = 48.95M},
-                 new Product { Name = "Soccer ball", Price = 19.50M}, // creating Filtring Extantion Methods 
-                 new Product { Name = "Corner flag", Price = 34.95M}
-            };
+            //     new Product { Name = "Lifejacket", Price = 48.95M},
+            //     new Product { Name = "Soccer ball", Price = 19.50M}, // creating Filtring Extantion Methods 
+            //     new Product { Name = "Corner flag", Price = 34.95M}
+            //};
             //decimal cartTotal = cart.TotalPrices();
             //decimal arrayTotal = productArray.TotalPrices();
 
@@ -131,18 +128,25 @@ namespace LanguageFeatures.Controllers
 
             //Defining Expressions
 
-            Func<Product, bool> nameFilter = delegate (Product prod)
+            //    Func<Product, bool> nameFilter = delegate (Product prod)
+            //    {
+            //        return prod?.Name?[0] == 'S';
+            //    };
+
+            //    decimal priceFilterTotal = productArray.Filter(FilterByPrice).TotalPrices();
+            //    decimal nameFilterTotal = productArray.Filter(nameFilter).TotalPrices();
+
+            //    return View("Index", new string[]
+            //        {$"Price Total : {priceFilterTotal:C2}",
+            //        $"Name Total : {nameFilterTotal:C2}"
+            //    });
+
+            //LINQ
+
             {
-                return prod?.Name?[0] == 'S';
-            };
+                return View(Product.GetProducts().Select(p => p?.Name));
 
-            decimal priceFilterTotal = productArray.Filter(FilterByPrice).TotalPrices();
-            decimal nameFilterTotal = productArray.Filter(nameFilter).TotalPrices();
-
-            return View("Index", new string[]
-                {$"Price Total : {priceFilterTotal:C2}",
-                $"Name Total : {nameFilterTotal:C2}"
-            });
+            }
         }
 
 
