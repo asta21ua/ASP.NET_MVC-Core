@@ -143,9 +143,16 @@ namespace LanguageFeatures.Controllers
 
             //LINQ
 
-            {
-                return View(Product.GetProducts().Select(p => p?.Name));
+            //{
+            //    return View(Product.GetProducts().Select(p => p?.Name));
 
+            //}
+
+            //Type inference or implicit typing
+
+            {
+                var names = new[] { "Kayak", "Lifejacket", "Soccer ball" };
+                return View(names);
             }
         }
 
