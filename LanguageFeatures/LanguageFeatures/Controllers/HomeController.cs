@@ -4,18 +4,19 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using LanguageFeatures.Models;
+using System.Threading.Tasks;
 
 namespace LanguageFeatures.Controllers
 {
     public class HomeController : Controller
     { // Defining Exprretions
-        //    bool FilterByPrice(Product p)
-        //    {
-        //        return (p?.Price ?? 0) >= 20;
-        //    }
-        //    public ViewResult Index()
-        //    {
-        //List<string> results = new List<string>();
+      //    bool FilterByPrice(Product p)
+      //    {
+      //        return (p?.Price ?? 0) >= 20;
+      //    }
+      //    public ViewResult Index()
+      //    {
+      //List<string> results = new List<string>();
 
         //foreach (Product p in Product.GetProducts())
         //{
@@ -155,24 +156,35 @@ namespace LanguageFeatures.Controllers
         //}
 
         //Anonymous Types
-        public ViewResult Index()
+        //public ViewResult Index()
 
+        //{
+        //    var products = new[]
+        //    {
+        //     new {Name = "Kayak", Price = 275M },
+        //     new {Name = "Lifejacket", Price = 48.95M },
+        //     new {Name = "Soccer ball", Price = 19.50M},
+        //     new {Name = "Corner flag", Price = 34.95M}
+
+        //    };
+
+
+        //    return View(products.Select(p => p.Name));
+        //}
+
+
+        //An Asynchronous Action Methods
+
+        public async Task<ViewResult> Index()
         {
-            var products = new[]
-          {
-            new {Name = "Kayak", Price = 275M },
-            new {Name = "Lifejacket", Price = 48.95M },
-            new {Name = "Soccer ball", Price = 19.50M},
-            new {Name = "Corner flag", Price = 34.95M}
+            long? length = await MyAsyncMethods.GetPageLength();
+            return View(new string[] { $"Length: {length}" });
 
-        };
-
-            return View(products.Select(p => p.Name));
         }
     }
 }
-       
- 
-    
+
+
+
 
 
