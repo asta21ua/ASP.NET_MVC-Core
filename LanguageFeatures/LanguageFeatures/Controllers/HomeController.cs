@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using LanguageFeatures.Models;
-using System.Threading.Tasks;
 
 namespace LanguageFeatures.Controllers
 {
@@ -175,12 +174,33 @@ namespace LanguageFeatures.Controllers
 
         //An Asynchronous Action Methods
 
-        public async Task<ViewResult> Index()
-        {
-            long? length = await MyAsyncMethods.GetPageLength();
-            return View(new string[] { $"Length: {length}" });
+        //public async Task<ViewResult> Index()
+        //{
+        //    long? length = await MyAsyncMethods.GetPageLength();
+        //    return View(new string[] { $"Length: {length}" });
 
+        //}
+       
+        
+        //Hard-Coding for geting Names
+
+        public ViewResult Index()
+        {
+            var products = new[]
+            {
+                new { Name = "Kayak", Price = 275M},
+                new { Name = "Lifejacket", Price = 48.95M},
+                new { Name = "Soccer ball", Price = 19.50M},
+                new { Name = "Corner flag", Price = 34.95M},
+            };
+
+            //return View(products.Select(p => $"Name: {p.Name}, Price: {p.Price}"));
+
+            // nameof
+
+            return View(products.Select(p => $"{nameof(p.Name)}: {p.Name}, {nameof(p.Price)}: {p.Price}"));
         }
+
     }
 }
 
